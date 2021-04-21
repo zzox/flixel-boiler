@@ -1,23 +1,25 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxState;
+import flixel.system.scaleModes.PixelPerfectScaleMode;
 
 class PlayState extends FlxState {
-	override public function create() {
-		super.create();
+    override public function create() {
+        super.create();
 
-		FlxG.mouse.visible = false;
+        // PROD: remove this vvv
+        // requires `-debug` flag
+        FlxG.debugger.visible = true;
+        FlxG.debugger.drawDebug = true;
 
-		// camera.pixelPerfectRender = true;
-		// remove vvv when going live
-		FlxG.scaleMode = new PixelPerfectScaleMode();
+        FlxG.mouse.visible = false;
 
-		camera.followLerp = 0.5;
+        camera.pixelPerfectRender = true;
+        FlxG.scaleMode = new PixelPerfectScaleMode();
+    }
 
-		// bgColor = 0xff8b9bb4;
-	}
-
-	override public function update(elapsed:Float) {
-		super.update(elapsed);
-	}
+    override public function update(elapsed:Float) {
+        super.update(elapsed);
+    }
 }
