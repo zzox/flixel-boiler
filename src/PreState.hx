@@ -1,5 +1,6 @@
 package;
 
+import display.Font.makeText;
 import flixel.FlxG;
 import flixel.FlxState;
 import flixel.graphics.frames.FlxBitmapFont;
@@ -30,14 +31,8 @@ class PreState extends FlxState {
 
         bgColor = 0xff000000;
 
-        var textBytes = Assets.getText(AssetPaths.miniset__fnt);
-        var XMLData = Xml.parse(textBytes);
-        var fontAngelCode = FlxBitmapFont.fromAngelCode(AssetPaths.miniset__png, XMLData);
-
-        var text = new FlxBitmapText(fontAngelCode);
+        final text = makeText('Click to focus window');
         text.color = 0xffffffff;
-        text.text = 'Click to focus window';
-        text.letterSpacing = -1;
         text.setPosition((FlxG.width - text.width) / 2, 60);
         add(text);
     }

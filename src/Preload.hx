@@ -9,7 +9,8 @@ class Preload extends FlxBasePreloader {
     var bar:Bitmap;
 
     public function new () {
-        super(3);
+        // one second minimum preload
+        super(1);
     }
 
     override public function create () {
